@@ -1,2 +1,2 @@
-# medirecord_backend
+# Medical Records Back End
 Medical Records BackEnd (Node)
