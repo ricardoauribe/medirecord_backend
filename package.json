@@ -1,0 +1,19 @@
+{
+  "name": "medirecord_backend",
+  "version": "1.0.0",
+  "description": "Medical records for the family",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardoauribe/medirecord_backend.git"
+  },
+  "author": "Ricardo Uribe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ricardoauribe/medirecord_backend/issues"
+  },
+  "homepage": "https://github.com/ricardoauribe/medirecord_backend#readme"
+}
