@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ricardoauribe/medirecord_backend/issues"
   },
-  "homepage": "https://github.com/ricardoauribe/medirecord_backend#readme"
+  "homepage": "https://github.com/ricardoauribe/medirecord_backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
