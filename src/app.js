@@ -9,6 +9,25 @@ const app = express();
 app.use(express.static(path.join(__dirname, '/build')));
 
 
+//Function to handle DB connection
+//This will handle regular DB connection and validation and will receive a function to execute an operation over the DB
+//The function itself is async and will requiere an await on the received function (operations)
+//The function also receives the res object to be able to send the response over the catch section
+const withDB = async (operations, res) => {
+  try {
+    const client = await MongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true});
+    const db = client.db('med-records');
+
+    await operations(db);
+    client.close();
+
+  } catch (error) {
+    res.status(500).json({message: 'Error connecting to db', error});
+  }
+}
+
+
+
 app.get('/', (req, res)=> res.send('Welcome to the family medical record!'));
 
 app.get('/member', (req, res)=> res.send('Member Information!'));
