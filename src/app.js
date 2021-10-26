@@ -1,6 +1,13 @@
 import express from 'express';
+import { MongoClient } from 'mongodb';
+import path from 'path';
 
 const app = express();
+
+//Setting up where the static content is
+//This is what we build from the react app at the front end
+app.use(express.static(path.join(__dirname, '/build')));
+
 
 app.get('/', (req, res)=> res.send('Welcome to the family medical record!'));
 
