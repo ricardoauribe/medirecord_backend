@@ -40,3 +40,12 @@ Once started create a db
 mongo
 use med-records
 ´´´
+
+create member document
+
+´´´
+db.memeber.insert([{ name: 'Ricardo', 
+ lastname: 'Uribe',
+ age: 38,
+ }])
+´´´
