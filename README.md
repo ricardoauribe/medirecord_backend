@@ -41,10 +41,10 @@ mongo
 use med-records
 ´´´
 
-create member document
+create members document
 
 ´´´
-db.memeber.insert([{ name: 'Ricardo', 
+db.members.insert([{ name: 'Ricardo', 
  lastname: 'Uribe',
  age: 38,
  }])

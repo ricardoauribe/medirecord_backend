@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import { MongoClient } from 'mongodb';
 import path from 'path';
 
@@ -8,6 +9,8 @@ const app = express();
 //This is what we build from the react app at the front end
 app.use(express.static(path.join(__dirname, '/build')));
 
+//This will tell the app that the requests may have a body to be parsed
+app.use(bodyParser.json());
 
 //Function to handle DB connection
 //This will handle regular DB connection and validation and will receive a function to execute an operation over the DB
@@ -31,6 +34,22 @@ const withDB = async (operations, res) => {
 app.get('/', (req, res)=> res.send('Welcome to the family medical record!'));
 
 app.get('/member', (req, res)=> res.send('Member Information!'));
+
+//Get data from a given document(member) in Mongo DB
+//This calls  withDB and sends a function to query the received article through params
+app.get('/api/member/:name', async (req, res) => {
+
+  withDB( async (db) => {
+
+    const memberName = req.params.name;
+    console.log(memberName)
+    const memeberInfo = await db.collection('members').findOne({name: memberName});
+    console.log(memeberInfo)
+    res.status(200).json(memeberInfo);
+  
+  }, res);
+})
+
 
 app.get('/appoitment', (req, res)=> res.send('Appointment Information!'));
 
