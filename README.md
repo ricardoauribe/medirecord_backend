@@ -9,7 +9,8 @@ The intention of this project is to keep a record of medical history for the fam
 
 # Initial thougts on API
 
-- /member - General Data for a fmaily member
+- /api/member/:name - General Data for a family member
+- /api/members - Get all members
 - /visit - Details of a medical consultation
 - /history - List of visits corresponding to a member
 

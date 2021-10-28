@@ -33,6 +33,9 @@ const withDB = async (operations, res) => {
 
 app.get('/', (req, res)=> res.send('Welcome to the family medical record!'));
 
+//Get all existing members
+//TODO: Limit the query to a fixed number
+
 app.get('/api/members', async (req, res)=> {
 
   withDB( async (db) => {
@@ -44,6 +47,7 @@ app.get('/api/members', async (req, res)=> {
 
 //Get data from a given document(member) in Mongo DB
 //This calls  withDB and sends a function to query the received article through params
+
 app.get('/api/member/:name', async (req, res) => {
 
   withDB( async (db) => {
