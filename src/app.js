@@ -33,7 +33,14 @@ const withDB = async (operations, res) => {
 
 app.get('/', (req, res)=> res.send('Welcome to the family medical record!'));
 
-app.get('/member', (req, res)=> res.send('Member Information!'));
+app.get('/api/members', async (req, res)=> {
+
+  withDB( async (db) => {
+    const memebersCollection = await db.collection('members').find({}).toArray()
+    res.status(200).json(memebersCollection);
+
+  }, res);
+});
 
 //Get data from a given document(member) in Mongo DB
 //This calls  withDB and sends a function to query the received article through params
@@ -42,9 +49,7 @@ app.get('/api/member/:name', async (req, res) => {
   withDB( async (db) => {
 
     const memberName = req.params.name;
-    console.log(memberName)
     const memeberInfo = await db.collection('members').findOne({name: memberName});
-    console.log(memeberInfo)
     res.status(200).json(memeberInfo);
   
   }, res);
