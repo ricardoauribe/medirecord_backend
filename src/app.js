@@ -29,8 +29,6 @@ const withDB = async (operations, res) => {
   }
 }
 
-
-
 app.get('/', (req, res)=> res.send('Welcome to the family medical record!'));
 
 //Get all existing members

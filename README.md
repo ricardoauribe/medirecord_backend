@@ -37,16 +37,29 @@ brew services stop mongodb-community@5.0
 
 Once started create a db
 
-´´´
+```
 mongo
 use med-records
-´´´
+```
 
 create members document
 
-´´´
+```
 db.members.insert([{ name: 'Ricardo', 
  lastname: 'Uribe',
  age: 38,
  }])
-´´´
+```
+
+create appoitment document
+
+```
+db.appointment.insert([{ patient: 'Ricardo Uribe', 
+ Date: '2022-10-27',
+ Type: 'Dentist',
+ Description: 'Caries Removal',
+ RecepieURL: 'TBD',
+ BillPDF: 'TBD',
+ BillXML: 'TBD',
+ }])
+```
