@@ -20,4 +20,23 @@ The intention of this project is to keep a record of medical history for the fam
 
 This project will use an instance of mongo DB, please follow these steps for the initial setup
 
-The name is red-records
+The name is med-records
+
+To Start the service
+
+```
+brew services start mongodb-community@5.0
+```
+
+or to stop the service:
+
+```
+brew services stop mongodb-community@5.0
+```
+
+Once started create a db
+
+´´´
+mongo
+use med-records
+´´´
