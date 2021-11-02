@@ -58,7 +58,16 @@ app.get('/api/member/:name', async (req, res) => {
 })
 
 
-app.get('/appointment', (req, res)=> res.send('Appointment Information!'));
+app.get('/api/appointment/:id', async (req, res)=> {
+  withDB( async (db) => {
+
+    const appointment_id = req.params.id;
+    console.log(appointment_id)
+    const appointmentInfo = await db.collection('appointment').findOne({appointment_id: appointment_id});
+    res.status(200).json(appointmentInfo);
+  
+  }, res);
+})
 
 app.get('/history', (req, res)=> res.send('History Records for a family member!'));
 
