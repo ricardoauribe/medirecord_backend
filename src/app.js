@@ -58,7 +58,7 @@ app.get('/api/member/:name', async (req, res) => {
 })
 
 
-app.get('/appoitment', (req, res)=> res.send('Appointment Information!'));
+app.get('/appointment', (req, res)=> res.send('Appointment Information!'));
 
 app.get('/history', (req, res)=> res.send('History Records for a family member!'));
 
