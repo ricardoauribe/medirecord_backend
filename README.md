@@ -12,7 +12,7 @@ The intention of this project is to keep a record of medical history for the fam
 - / - Home should redirect to static content folder over build folder
 - /api/member/:name - General Data for a family member
 - /api/members - Get all members
-- /appointment - Get details on an specific appointment
+- /api/appointment/:id - Get details on an specific appointment
 - /visit - Details of a medical consultation
 - /history - List of visits corresponding to a member
 
