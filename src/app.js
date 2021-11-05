@@ -3,7 +3,11 @@ import bodyParser from 'body-parser';
 import { MongoClient } from 'mongodb';
 import path from 'path';
 
+var cors = require('cors');
+
 const app = express();
+
+app.use(cors())
 
 //Setting up where the static content is
 //This is what we build from the react app at the front end
