@@ -50,12 +50,12 @@ app.get('/api/members', async (req, res)=> {
 //Get data from a given document(member) in Mongo DB
 //This calls  withDB and sends a function to query the received article through params
 
-app.get('/api/member/:name', async (req, res) => {
+app.get('/api/member/:id', async (req, res) => {
 
   withDB( async (db) => {
 
-    const memberName = req.params.name;
-    const memeberInfo = await db.collection('members').findOne({name: memberName});
+    const memberId = req.params.id;
+    const memeberInfo = await db.collection('members').findOne({guid: memberId});
     res.status(200).json(memeberInfo);
   
   }, res);
