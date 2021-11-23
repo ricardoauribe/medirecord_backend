@@ -75,11 +75,11 @@ app.get('/api/appointment/:id', async (req, res)=> {
 
 //Get medical history for a given member
 //TODO:Change structure to be a POST
-app.get('/api/history/:name', async (req, res)=> {
+app.get('/api/history/:guid', async (req, res)=> {
   withDB( async (db) => {
-    const member_name = req.params.name;
-    console.log(member_name)
-    const historyCollection = await db.collection('appointment').find({patient: member_name}).toArray()
+    const memberGUID = req.params.guid;
+    console.log(memberGUID)
+    const historyCollection = await db.collection('appointment').find({patientGUID: memberGUID}).toArray()
     res.status(200).json(historyCollection);
   }, res);
 });
